@@ -4,12 +4,12 @@ This code is a functional simulation of Bitcoin's Proof of Work (PoW) algorithm.
 1. Initial Setup (The Rules)
 At the top, i  define the constraints for the blockchain:
 
-# TARGET_DIFFICULTY: This is a very large number. For a hash to be "valid," its numerical value must be less than this target. By starting the target with 0x0f..., you are forcing the hash to start with at least one zero.
- # MAX_TRANSACTIONS  : MAX_TRANSACTIONS is a constant that sets a limit on how much data a single block can hold. Think of it as the "size limit" of a cargo container.
+ TARGET_DIFFICULTY: This is a very large number. For a hash to be "valid," its numerical value must be less than this target. By starting the target with 0x0f..., you are forcing the hash to start with at least one zero.
+ MAX_TRANSACTIONS  : MAX_TRANSACTIONS is a constant that sets a limit on how much data a single block can hold. Think of it as the "size limit" of a cargo container.
 
-# mempool: This is an array that acts as a "waiting room" for transactions that haven't been added to a block yet.
+mempool: This is an array that acts as a "waiting room" for transactions that haven't been added to a block yet.
 
-# blocks: This is your actual ledger (the blockchain).
+ blocks: This is your actual ledger (the blockchain).
 
 2. addTransaction (The Input)
 This function is simple. It takes a piece of data (like Alice sending Bob money) and pushes it into the mempool. It hasn't been "confirmed" yet; it’s just waiting to be picked up by a miner.
@@ -39,5 +39,5 @@ If Yes: It has found the "Golden Nonce." It breaks the loop.
 Once the loop breaks, the valid hash is permanently attached to the block using the spread operator ({ ...block, hash }), and the block is pushed into the blocks array.
 
 Execution Summary
-# Transaction Added: { sender: "vivek", ... } enters the mempool.
+ Transaction Added: { sender: "vivek", ... } enters the mempool.
 
